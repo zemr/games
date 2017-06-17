@@ -91,3 +91,32 @@ body {
     height: 550px;
   }
 }
+
+/* game1 */
+
+.plants span {
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+  display: inline-block;
+}
+
+.stage_0 {
+  background-image: url(../img/d0.png);
+}
+
+.stage_1 {
+  background-image: url(../img/d1.png);
+}
+
+.stage_2 {
+  background-image: url(../img/d2.png);
+}
+
+.stage_3 {
+  background-image: url(../img/d3.png);
+}
+
+.stage_4 {
+  background-image: url(../img/d4.png);
+}

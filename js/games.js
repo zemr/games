@@ -2,10 +2,22 @@ function game1() {
   var root = document.getElementById('game');
   var close = document.getElementById('close');
   var dry, keepingWatered;
+  var count;
+
+  function setCount(width, height) {
+    var places = (width * height - (width * height * 0.35)) / 20000;
+    return count = Math.floor(places);
+  }
+
+  if (window.innerWidth < 760) {
+    setCount(innerWidth, innerHeight);
+  } else {
+    count = 16;
+  }
 
   function putPlants() {
     var plants = '<div class="plants">';
-    for (var i = 1; i < 15; i++) {
+    for (var i = 1; i < count; i++) {
       plants += '<span id="' + i + '" class="stage_3"></span>';
     }
     plants += '</div>';
@@ -31,7 +43,7 @@ function game1() {
     plant.classList.add('stage_' + (stage - 1));
     dry = setTimeout(function () {
       dryingOut(plant, stage - 1, counter + 1);
-    }, 1500);
+    }, 1000);
     return dry;
   }
 
@@ -60,12 +72,14 @@ function game1() {
 
   keepingWatered = setInterval(function () {
     var plant = choosePlant();
-    var soilStage = checkSoil(plant);
-    plant.onclick = stopDryingOut;
-    dryingOut(plant, soilStage, 3 - soilStage);
-  }, 2000);
+    if (plant) {
+      var soilStage = checkSoil(plant);
+      plant.onclick = stopDryingOut;
+      dryingOut(plant, soilStage, 3 - soilStage);
+    }
+  }, 1500);
 
-  setTimeout(stopGame, 60000);
+  setTimeout(stopGame, 100000);
 
 }
 

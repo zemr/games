@@ -95,28 +95,39 @@ body {
 /* game1 */
 
 .plants span {
-  height: 50px;
-  width: 50px;
-  margin: 20px;
+  width: 110px;
+  height: 130px;
   display: inline-block;
 }
 
 .stage_0 {
-  background-image: url(../img/d0.png);
+  background-image: url(../img/g1-s0.png);
 }
 
 .stage_1 {
-  background-image: url(../img/d1.png);
+  background-image: url(../img/g1-s1.png);
 }
 
 .stage_2 {
-  background-image: url(../img/d2.png);
+  background-image: url(../img/g1-s2.png);
 }
 
 .stage_3 {
-  background-image: url(../img/d3.png);
+  background-image: url(../img/g1-s3.png);
 }
 
 .stage_4 {
-  background-image: url(../img/d4.png);
+  background-image: url(../img/g1-s4.png);
+}
+
+@media (max-width: 349px) {
+  .plants span {
+    margin: 5px;
+  }
+}
+
+@media (min-width: 350px) {
+  .plants span {
+    margin: 10px;
+  }
 }

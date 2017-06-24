@@ -70,6 +70,41 @@ body {
   margin: 30px 5px 8px;
 }
 
+.game .cover {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game .message {
+  padding: 30px 0 30px;
+  color: #7c7e6e;
+}
+
+.game .button {
+  width: 150px;
+  height: 150px;
+  padding: 12px;
+  background-color: #e5e7c9;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  color: #90927f;
+}
+
+.game .button:hover {
+  border: 1px solid #d5d7bb;
+}
+
+@media (max-height: 359px) {
+  .game .message {
+    padding: 0 0 10px;
+  }
+}
+
 @media (max-width: 759px) {
   .tiles {
     justify-content: center;

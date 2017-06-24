@@ -1,8 +1,44 @@
 function game1() {
   var root = document.getElementById('game');
   var close = document.getElementById('close');
+  var coverScheme = '<div class="cover">' +
+    '<div class="message"></div>' +
+    '<button class="button" id="start"></button>' +
+    '</div>';
   var dry, keepingWatered;
   var count;
+
+  function generateCover(type) {
+    root.innerHTML = coverScheme;
+    fillCover(type);
+    prepareStartingGameButton();
+  }
+
+  function fillCover(type) {
+    var message = document.getElementsByClassName('message');
+    var button = document.getElementsByClassName('button');
+    if (type === 'front') {
+      message[0].textContent = 'Masz pod swoją opieką sadzonki. ' +
+        'Twoim zadaniem jest dopilnować, żeby żadna z nich nie uschła.' +
+        'Podlewaj je kliknięciami, gdy zaczną więdnąć, ale uważaj, żeby ich nie przelać, bo zgniją.';
+      button[0].textContent = 'Rozpocznij grę';
+    } else if (type === 'back') {
+      message[0].textContent = 'Koniec gry';
+      button[0].textContent = 'Ponów';
+    }
+  }
+
+  function prepareStartingGameButton() {
+    var start = document.getElementById('start');
+    start.onclick = function() {
+      root.innerHTML = putPlants();
+      setTimeout(function() {
+        root.onclick = waterPlant;
+        startWatering();
+        setTimeout(stopGame, 100000);
+      }, 0);
+    };
+  }
 
   function setCount(width, height) {
     var places = (width * height - (width * height * 0.35)) / 20000;
@@ -26,7 +62,7 @@ function game1() {
 
   function choosePlant() {
     var plants = document.querySelectorAll('.stage_3, .stage_2, .stage_1');
-    if (plants.length <= 1) stopGame();
+    if (plants.length < 1) stopGame();
     var randomPlant = Math.floor(Math.random() * (plants.length));
     return plants[randomPlant];
   }
@@ -43,7 +79,7 @@ function game1() {
     plant.classList.add('stage_' + (stage - 1));
     dry = setTimeout(function () {
       dryingOut(plant, stage - 1, counter + 1);
-    }, 1000);
+    }, 800);
     return dry;
   }
 
@@ -62,24 +98,24 @@ function game1() {
     }
   }
 
-  function stopGame() {
-    clearInterval(keepingWatered);
+  function startWatering() {
+    keepingWatered = setInterval(function () {
+      var plant = choosePlant();
+      if (plant) {
+        var soilStage = checkSoil(plant);
+        plant.onclick = stopDryingOut;
+        dryingOut(plant, soilStage, 3 - soilStage);
+      }
+    }, 1200);
   }
 
-  root.innerHTML = putPlants();
-  root.onclick = waterPlant;
+  function stopGame() {
+    clearInterval(keepingWatered);
+    generateCover('back');
+  }
+
+  generateCover('front');
   close.addEventListener('click', stopGame);
-
-  keepingWatered = setInterval(function () {
-    var plant = choosePlant();
-    if (plant) {
-      var soilStage = checkSoil(plant);
-      plant.onclick = stopDryingOut;
-      dryingOut(plant, soilStage, 3 - soilStage);
-    }
-  }, 1500);
-
-  setTimeout(stopGame, 100000);
 
 }
 

@@ -166,3 +166,51 @@ body {
     margin: 10px;
   }
 }
+
+/* game2 */
+
+.top {
+  width: 240px;
+  height: 60px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.bottom {
+  width: 312px;
+  height: 310px;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+[class*="-top"] {
+  flex: auto;
+}
+
+.a-top {
+  background-color: #c73f33;
+}
+.b-top {
+  background-color: #6a8437;
+}
+.c-top {
+  background-color: #c79517;
+}
+.d-top {
+  background-color: #ac6438;
+}
+
+[class*="-bottom"] {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  margin-left: 4px;
+  display: flex;
+  border: 1px solid #8b4516;
+}
+
+.empty {
+  width: 60px;
+  height: 60px;
+}

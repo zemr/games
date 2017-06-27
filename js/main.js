@@ -1,0 +1,1 @@
+function displayGame(e){document.getElementById("game-container").style.display="block",window["game"+e]()}for(var tile=document.getElementsByClassName("tile"),i=0;i<tile.length;i++)tile[i].onclick=function(){var e=i+1;return function(){displayGame(e)}}();var close=document.getElementById("close");close.onclick=function(){close.parentNode.style.display="none"};

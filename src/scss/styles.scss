@@ -1,3 +1,6 @@
+$game-primary-color: #d5d7bb;
+$game-secondary-color: #e5e7c9;
+
 body {
   background-color: #f7faed;
   background-image: url('../img/cross.svg');
@@ -35,16 +38,16 @@ body {
   font-size: 20px;
   text-shadow: 0 0 3px #007a00;
   transition: color 1s;
-}
 
-.tile:hover {
-  color: #f1df3e;
+  &:hover {
+    color: #f1df3e;
+  }
 }
 
 .game-container {
   display: none;
   position: absolute;
-  background-color: #d5d7bb;
+  background-color: $game-primary-color;
   box-shadow: 0 0 4px 1px #838574;
 }
 
@@ -59,49 +62,51 @@ body {
   font-size: 20px;
   line-height: 30px;
   color: #989a86;
-}
 
-.close:hover {
-  background-color: #e5e7c9;
-  border-radius: 50%;
+  &:hover {
+    background-color: $game-secondary-color;
+    border-radius: 50%;
+  }
 }
 
 .game {
   margin: 30px 5px 8px;
-}
 
-.game .cover {
-  margin-left: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  .cover {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-.game .message {
-  padding: 30px 0 30px;
-  color: #7c7e6e;
-}
+  .message {
+    padding: 30px 0 30px;
+    color: #7c7e6e;
+  }
 
-.game .button {
-  width: 150px;
-  height: 150px;
-  padding: 12px;
-  background-color: #e5e7c9;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  color: #90927f;
-}
+  .button {
+    width: 150px;
+    height: 150px;
+    padding: 12px;
+    background-color: $game-secondary-color;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #90927f;
 
-.game .button:hover {
-  border: 1px solid #d5d7bb;
+    &:hover {
+      border: 1px solid $game-primary-color;
+    }
+  }
 }
 
 @media (max-height: 359px) {
-  .game .message {
-    padding: 0 0 10px;
+  .game {
+    .message {
+      padding: 0 0 10px;
+    }
   }
 }
 
@@ -127,47 +132,53 @@ body {
   }
 }
 
-/* game1 */
+// game1
 
-.plants span {
-  width: 110px;
-  height: 130px;
-  display: inline-block;
+.plants {
+  span {
+    width: 110px;
+    height: 130px;
+    display: inline-block;
+  }
 }
 
 .stage_0 {
-  background-image: url(../img/g1-s0.png);
+  background-image: url('../img/g1-s0.png');
 }
 
 .stage_1 {
-  background-image: url(../img/g1-s1.png);
+  background-image: url('../img/g1-s1.png');
 }
 
 .stage_2 {
-  background-image: url(../img/g1-s2.png);
+  background-image: url('../img/g1-s2.png');
 }
 
 .stage_3 {
-  background-image: url(../img/g1-s3.png);
+  background-image: url('../img/g1-s3.png');
 }
 
 .stage_4 {
-  background-image: url(../img/g1-s4.png);
+  background-image: url('../img/g1-s4.png');
 }
 
 @media (max-width: 349px) {
-  .plants span {
-    margin: 5px;
+  .plants {
+    span {
+      margin: 5px;
+    }
   }
 }
 
 @media (min-width: 350px) {
-  .plants span {
-    margin: 10px;
+  .plants {
+    span {
+      margin: 10px;
+    }
   }
 }
 
-/* game2 */
+// game2
 
 .top {
   width: 240px;

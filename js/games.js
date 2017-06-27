@@ -5,7 +5,7 @@ function game1() {
     '<div class="message"></div>' +
     '<button class="button" id="start"></button>' +
     '</div>';
-  var dry, keepingWatered;
+  var countdown, dry, keepingWatered;
   var count;
 
   function generateCover(type) {
@@ -35,7 +35,7 @@ function game1() {
       setTimeout(function() {
         root.onclick = waterPlant;
         startWatering();
-        setTimeout(stopGame, 100000);
+        countdown = setTimeout(stopGame, 100000);
       }, 0);
     };
   }
@@ -111,6 +111,7 @@ function game1() {
 
   function stopGame() {
     clearInterval(keepingWatered);
+    clearInterval(countdown);
     generateCover('back');
   }
 

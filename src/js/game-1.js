@@ -1,31 +1,23 @@
 function game1() {
-  var root = document.getElementById('game');
   var close = document.getElementById('close');
-  var coverScheme = '<div class="cover">' +
-    '<div class="message"></div>' +
-    '<button class="button" id="start"></button>' +
-    '</div>';
+  var coverContent = {
+    front: {
+      messageContent: 'Masz pod swoją opieką sadzonki. ' +
+      'Twoim zadaniem jest dopilnować, żeby żadna z nich nie uschła.' +
+      'Podlewaj je kliknięciami, gdy zaczną więdnąć, ale uważaj, żeby ich nie przelać, bo zgniją.',
+      buttonContent: 'Rozpocznij grę'
+    },
+    back: {
+      messageContent: 'Koniec gry',
+      buttonContent: 'Ponów'
+    }
+  };
   var countdown, dry, keepingWatered;
   var count;
 
-  function generateCover(type) {
-    root.innerHTML = coverScheme;
-    fillCover(type);
+  function generateActiveCover(content) {
+    generateCover(content);
     prepareStartingGameButton();
-  }
-
-  function fillCover(type) {
-    var message = document.getElementsByClassName('message');
-    var button = document.getElementsByClassName('button');
-    if (type === 'front') {
-      message[0].textContent = 'Masz pod swoją opieką sadzonki. ' +
-        'Twoim zadaniem jest dopilnować, żeby żadna z nich nie uschła.' +
-        'Podlewaj je kliknięciami, gdy zaczną więdnąć, ale uważaj, żeby ich nie przelać, bo zgniją.';
-      button[0].textContent = 'Rozpocznij grę';
-    } else if (type === 'back') {
-      message[0].textContent = 'Koniec gry';
-      button[0].textContent = 'Ponów';
-    }
   }
 
   function prepareStartingGameButton() {
@@ -112,9 +104,9 @@ function game1() {
   function stopGame() {
     clearInterval(keepingWatered);
     clearInterval(countdown);
-    generateCover('back');
+    generateActiveCover(coverContent.back);
   }
 
-  generateCover('front');
+  generateActiveCover(coverContent.front);
   close.addEventListener('click', stopGame);
 }

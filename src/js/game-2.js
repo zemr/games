@@ -1,5 +1,4 @@
 function game2() {
-  var root = document.getElementById('game');
   var classes = ['a', 'b', 'c', 'd'];
   var block, blockType;
 

@@ -1,6 +1,18 @@
 function game2() {
+  var coverContent = {
+    messageContent: 'Przeciągnij kolorowe bloki na odpowiednie miejsca na środku ekranu.',
+    buttonContent: 'Rozpocznij grę'
+  };
   var classes = ['a', 'b', 'c', 'd'];
   var block, blockType;
+
+  function prepareStartingGameButton() {
+    var start = document.getElementById('start');
+    start.onclick = function() {
+      root.innerHTML = generateView();
+      addEvents();
+    }
+  }
 
   function shuffle(classes) {
     var i = 3;
@@ -123,6 +135,6 @@ function game2() {
     }
   }
 
-  root.innerHTML = generateView();
-  addEvents();
+  generateCover(coverContent);
+  prepareStartingGameButton();
 }

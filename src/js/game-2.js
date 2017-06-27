@@ -6,12 +6,14 @@ function game2() {
   var classes = ['a', 'b', 'c', 'd'];
   var block, blockType;
 
+  function prepareGame() {
+    root.innerHTML = generateView();
+    addEvents();
+  }
+
   function prepareStartingGameButton() {
     var start = document.getElementById('start');
-    start.onclick = function() {
-      root.innerHTML = generateView();
-      addEvents();
-    }
+    start.onclick = prepareGame;
   }
 
   function shuffle(classes) {
@@ -131,8 +133,14 @@ function game2() {
       setTimeout(function() {
         var set = document.getElementsByClassName('bottom');
         set[0].style.transform = 'scale(0.7) rotate(45deg)';
-      }, 500);
+        generateReplayButton(empties[1]);
+      }, 400);
     }
+  }
+
+  function generateReplayButton(target) {
+    target.classList.add('replay');
+    target.onclick = prepareGame;
   }
 
   generateCover(coverContent);

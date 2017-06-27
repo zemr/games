@@ -1,5 +1,6 @@
 $game-primary-color: #d5d7bb;
 $game-secondary-color: #e5e7c9;
+$game-tertiary-color: #989a86;
 
 body {
   background-color: #f7faed;
@@ -61,7 +62,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
-  color: #989a86;
+  color: $game-tertiary-color;
 
   &:hover {
     background-color: $game-secondary-color;
@@ -224,4 +225,40 @@ body {
 .empty {
   width: 60px;
   height: 60px;
+}
+
+.replay {
+  position: relative;
+  background-color: $game-secondary-color;
+  border-radius: 50%;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $game-secondary-color;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+  }
+
+  &::before {
+    width: 28px;
+    height: 28px;
+    margin-top: -19px;
+    left: 11px;
+    border: 5px solid $game-tertiary-color;
+    border-radius: 19px;
+  }
+
+  &::after {
+    margin-top: -24px;
+    left: 14px;
+    border-style: solid;
+    border-color: $game-secondary-color;
+    border-width: 8px 14px 8px 2px;
+    border-right-color: $game-tertiary-color;
+    box-shadow: -7px 8px $game-secondary-color;
+  }
 }

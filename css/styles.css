@@ -211,3 +211,38 @@ body {
   width: 60px;
   height: 60px;
 }
+
+.replay {
+  position: relative;
+  background-color: #e5e7c9;
+  border-radius: 50%;
+}
+
+.replay:hover {
+  box-shadow: 0 0 0 1px #e5e7c9;
+}
+
+.replay::before, .replay::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+}
+
+.replay::before {
+  width: 28px;
+  height: 28px;
+  margin-top: -19px;
+  left: 11px;
+  border: 5px solid #989a86;
+  border-radius: 19px;
+}
+
+.replay::after {
+  margin-top: -24px;
+  left: 14px;
+  border-style: solid;
+  border-color: #e5e7c9;
+  border-width: 8px 14px 8px 2px;
+  border-right-color: #989a86;
+  box-shadow: -7px 8px #e5e7c9;
+}

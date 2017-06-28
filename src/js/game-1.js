@@ -104,6 +104,7 @@ function game1() {
   function stopGame() {
     clearInterval(keepingWatered);
     clearInterval(countdown);
+    root.onclick = null;
     generateActiveCover(coverContent.back);
   }
 

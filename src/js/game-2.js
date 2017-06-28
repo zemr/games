@@ -60,8 +60,8 @@ function game2() {
     for (var i = 0; i < blocks.length; i++) {
       blocks[i].addEventListener('dragstart', handleDragStart, false);
       blocks[i].addEventListener('dragend', handleBlockDragEnd, false);
-      blocks[i].addEventListener('touchstart', handleTouchStart, false);
-      blocks[i].addEventListener('touchmove', handleTouchMove, false);
+      blocks[i].addEventListener('touchstart', handleTouchStart, {passive: false});
+      blocks[i].addEventListener('touchmove', handleTouchMove, {passive: false});
     }
 
     var targets = document.getElementsByClassName('target');
@@ -116,19 +116,18 @@ function game2() {
   }
 
   function handleTouchMove(e) {
+    e.preventDefault();
     var x = e.targetTouches[0].clientX;
     var y = e.targetTouches[0].clientY;
     blockTarget = document.elementFromPoint(x, y);
-    var rect = blockTarget.getBoundingClientRect();
-    moveBlock(rect.left, rect.top);
+    moveBlock();
   }
 
-  function moveBlock(x, y) {
-    if (blockTarget.className[0] === blockType) {
-      block.classList.add('moved');
-      block.style.left = x + 'px';
-      block.style.top = y + 'px';
+  function moveBlock() {
+    if (blockTarget.classList[1] === 'target' && blockTarget.className[0] === blockType) {
+      blockTarget.appendChild(block);
       blockTarget.style.border = 'none';
+      block.removeEventListener('touchmove', handleTouchMove, {passive: false});
       makeEmpty();
       checkEmpties();
     }
@@ -150,6 +149,7 @@ function game2() {
     var top = document.getElementsByClassName('top');
     var div = document.createElement('div');
     div.classList.add('empty');
+    div.addEventListener('touchmove', function(e) { e.preventDefault(); }, {passive: false});
     top[0].appendChild(div);
   }
 

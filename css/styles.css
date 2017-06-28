@@ -180,10 +180,6 @@ body {
   flex: auto;
 }
 
-[class*="-top"].moved {
-  position: absolute;
-}
-
 .a-top {
   background-color: #c73f33;
 }
@@ -231,12 +227,9 @@ body {
     width: 206px;
     height: 204px;
   }
-  [class*="-bottom"],
-  .moved {
+  [class*="-bottom"] {
     width: 100px;
     height: 100px;
-  }
-  [class*="-bottom"] {
     margin-left: 2px;
   }
   .empty {
@@ -271,12 +264,9 @@ body {
     width: 312px;
     height: 310px;
   }
-  [class*="-bottom"],
-  .moved {
+  [class*="-bottom"] {
     width: 150px;
     height: 150px;
-  }
-  [class*="-bottom"] {
     margin-left: 4px;
   }
   .empty {

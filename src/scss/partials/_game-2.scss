@@ -1,0 +1,150 @@
+.top {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.bottom {
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+[class*="-top"] {
+  flex: auto;
+
+  &.moved {
+    position: absolute;
+  }
+}
+
+.a-top {
+  background-color: #c73f33;
+}
+.b-top {
+  background-color: #6a8437;
+}
+.c-top {
+  background-color: #c79517;
+}
+.d-top {
+  background-color: #ac6438;
+}
+
+[class*="-bottom"] {
+  box-sizing: border-box;
+  display: flex;
+  border: 1px solid #8b4516;
+}
+
+.replay {
+  position: relative;
+  background-color: $game-secondary-color;
+  border-radius: 50%;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $game-secondary-color;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+  }
+}
+
+@media (max-width: $main-break - 1) {
+  .top {
+    width: 160px;
+    height: 40px;
+  }
+
+  .bottom {
+    width: 206px;
+    height: 204px;
+  }
+
+  [class*="-bottom"],
+  .moved  {
+    width: 100px;
+    height: 100px;
+  }
+
+  [class*="-bottom"] {
+    margin-left: 2px;
+  }
+
+  .empty {
+    width: 40px;
+    height: 40px;
+  }
+
+  .replay {
+    &::before {
+      width: 20px;
+      height: 20px;
+      margin-top: -14px;
+      left: 6px;
+      border: 4px solid $game-tertiary-color;
+      border-radius: 14px;
+    }
+
+    &::after {
+      margin-top: -18px;
+      left: 11px;
+      border-style: solid;
+      border-color: $game-secondary-color;
+      border-width: 6px 9px 6px 0;
+      border-right-color: $game-tertiary-color;
+      box-shadow: -6px 6px $game-secondary-color;
+    }
+  }
+}
+
+@media (min-width: $main-break) {
+  .top {
+    width: 240px;
+    height: 60px;
+  }
+
+  .bottom {
+    width: 312px;
+    height: 310px;
+  }
+
+  [class*="-bottom"],
+  .moved  {
+    width: 150px;
+    height: 150px;
+  }
+
+  [class*="-bottom"] {
+    margin-left: 4px;
+  }
+
+  .empty {
+    width: 60px;
+    height: 60px;
+  }
+
+  .replay {
+    &::before {
+      width: 28px;
+      height: 28px;
+      margin-top: -19px;
+      left: 11px;
+      border: 5px solid $game-tertiary-color;
+      border-radius: 19px;
+    }
+
+    &::after {
+      margin-top: -24px;
+      left: 14px;
+      border-style: solid;
+      border-color: $game-secondary-color;
+      border-width: 8px 14px 8px 2px;
+      border-right-color: $game-tertiary-color;
+      box-shadow: -7px 8px $game-secondary-color;
+    }
+  }
+}

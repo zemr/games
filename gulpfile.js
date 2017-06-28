@@ -32,7 +32,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/scss/styles.scss', ['styles']);
+  gulp.watch('src/scss/**/*.scss', ['styles']);
   gulp.watch('css/styles.css', ['minify-css']);
   gulp.watch('src/js/main.js', ['main-script']);
   gulp.watch('src/js/game-*.js', ['scripts']);

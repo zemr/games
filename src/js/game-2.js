@@ -4,7 +4,7 @@ function game2() {
     buttonContent: 'Rozpocznij grę'
   };
   var classes = ['a', 'b', 'c', 'd'];
-  var block, blockType;
+  var block, blockType, blockTarget;
 
   function prepareGame() {
     root.innerHTML = generateView();
@@ -60,6 +60,8 @@ function game2() {
     for (var i = 0; i < blocks.length; i++) {
       blocks[i].addEventListener('dragstart', handleDragStart, false);
       blocks[i].addEventListener('dragend', handleBlockDragEnd, false);
+      blocks[i].addEventListener('touchstart', handleTouchStart, false);
+      blocks[i].addEventListener('touchmove', handleTouchMove, false);
     }
 
     var targets = document.getElementsByClassName('target');
@@ -86,6 +88,11 @@ function game2() {
     e.dataTransfer.setData("text/html", e.target.className);
   }
 
+  function handleTouchStart(e) {
+    block = e.targetTouches[0].target;
+    blockType = e.targetTouches[0].target.className[0];
+  }
+
   function handleDragOver(e) {
     e.preventDefault();
   }
@@ -106,6 +113,25 @@ function game2() {
 
   function handleBlockDragEnd() {
     this.style.opacity = '';
+  }
+
+  function handleTouchMove(e) {
+    var x = e.targetTouches[0].clientX;
+    var y = e.targetTouches[0].clientY;
+    blockTarget = document.elementFromPoint(x, y);
+    var rect = blockTarget.getBoundingClientRect();
+    moveBlock(rect.left, rect.top);
+  }
+
+  function moveBlock(x, y) {
+    if (blockTarget.className[0] === blockType) {
+      block.classList.add('moved');
+      block.style.left = x + 'px';
+      block.style.top = y + 'px';
+      blockTarget.style.border = 'none';
+      makeEmpty();
+      checkEmpties();
+    }
   }
 
   function handleDrop(e) {

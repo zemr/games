@@ -1,6 +1,7 @@
 $game-primary-color: #d5d7bb;
 $game-secondary-color: #e5e7c9;
 $game-tertiary-color: #989a86;
+$main-break: 760px;
 
 body {
   background-color: #f7faed;
@@ -111,7 +112,7 @@ body {
   }
 }
 
-@media (max-width: 759px) {
+@media (max-width: $main-break - 1) {
   .tiles {
     justify-content: center;
     align-items: center;
@@ -122,7 +123,7 @@ body {
   }
 }
 
-@media (min-width: 760px) {
+@media (min-width: $main-break) {
   .tiles {
     width: 60%;
     height: 60%;
@@ -182,15 +183,11 @@ body {
 // game2
 
 .top {
-  width: 240px;
-  height: 60px;
   margin-bottom: 10px;
   display: flex;
 }
 
 .bottom {
-  width: 312px;
-  height: 310px;
   margin: auto;
   display: flex;
   flex-flow: row wrap;
@@ -198,6 +195,10 @@ body {
 
 [class*="-top"] {
   flex: auto;
+
+  &.moved {
+    position: absolute;
+  }
 }
 
 .a-top {
@@ -214,17 +215,9 @@ body {
 }
 
 [class*="-bottom"] {
-  width: 150px;
-  height: 150px;
   box-sizing: border-box;
-  margin-left: 4px;
   display: flex;
   border: 1px solid #8b4516;
-}
-
-.empty {
-  width: 60px;
-  height: 60px;
 }
 
 .replay {
@@ -242,23 +235,100 @@ body {
     position: absolute;
     top: 50%;
   }
+}
 
-  &::before {
-    width: 28px;
-    height: 28px;
-    margin-top: -19px;
-    left: 11px;
-    border: 5px solid $game-tertiary-color;
-    border-radius: 19px;
+@media (max-width: $main-break - 1) {
+  .top {
+    width: 160px;
+    height: 40px;
   }
 
-  &::after {
-    margin-top: -24px;
-    left: 14px;
-    border-style: solid;
-    border-color: $game-secondary-color;
-    border-width: 8px 14px 8px 2px;
-    border-right-color: $game-tertiary-color;
-    box-shadow: -7px 8px $game-secondary-color;
+  .bottom {
+    width: 206px;
+    height: 204px;
+  }
+
+  [class*="-bottom"],
+  .moved  {
+    width: 100px;
+    height: 100px;
+  }
+
+  [class*="-bottom"] {
+    margin-left: 2px;
+  }
+
+  .empty {
+    width: 40px;
+    height: 40px;
+  }
+
+  .replay {
+    &::before {
+      width: 20px;
+      height: 20px;
+      margin-top: -14px;
+      left: 6px;
+      border: 4px solid $game-tertiary-color;
+      border-radius: 14px;
+    }
+
+    &::after {
+      margin-top: -18px;
+      left: 11px;
+      border-style: solid;
+      border-color: $game-secondary-color;
+      border-width: 6px 9px 6px 0;
+      border-right-color: $game-tertiary-color;
+      box-shadow: -6px 6px $game-secondary-color;
+    }
+  }
+}
+
+@media (min-width: $main-break) {
+  .top {
+    width: 240px;
+    height: 60px;
+  }
+
+  .bottom {
+    width: 312px;
+    height: 310px;
+  }
+
+  [class*="-bottom"],
+  .moved  {
+    width: 150px;
+    height: 150px;
+  }
+
+  [class*="-bottom"] {
+    margin-left: 4px;
+  }
+
+  .empty {
+    width: 60px;
+    height: 60px;
+  }
+
+  .replay {
+    &::before {
+      width: 28px;
+      height: 28px;
+      margin-top: -19px;
+      left: 11px;
+      border: 5px solid $game-tertiary-color;
+      border-radius: 19px;
+    }
+
+    &::after {
+      margin-top: -24px;
+      left: 14px;
+      border-style: solid;
+      border-color: $game-secondary-color;
+      border-width: 8px 14px 8px 2px;
+      border-right-color: $game-tertiary-color;
+      box-shadow: -7px 8px $game-secondary-color;
+    }
   }
 }

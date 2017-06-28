@@ -3,7 +3,7 @@ function game1() {
   var coverContent = {
     front: {
       messageContent: 'Masz pod swoją opieką sadzonki. ' +
-      'Twoim zadaniem jest dopilnować, żeby żadna z nich nie uschła.' +
+      'Twoim zadaniem jest dopilnować, żeby żadna z nich nie uschła. ' +
       'Podlewaj je kliknięciami, gdy zaczną więdnąć, ale uważaj, żeby ich nie przelać, bo zgniją.',
       buttonContent: 'Rozpocznij grę'
     },

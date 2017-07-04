@@ -10,15 +10,29 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .tiles {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .tile {
@@ -29,11 +43,13 @@ body {
   position: relative;
   background-color: rgba(34, 139, 34, 0.61);
   border-radius: 6px;
-  box-shadow: 0 0 2px rgba(0, 80, 80, 0.9), 0 0 40px rgba(0, 80, 80, 0.62) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0, 80, 80, 0.9), 0 0 40px rgba(0, 80, 80, 0.62) inset;
+          box-shadow: 0 0 2px rgba(0, 80, 80, 0.9), 0 0 40px rgba(0, 80, 80, 0.62) inset;
   color: #fafad0;
   font-weight: bold;
   font-size: 20px;
   text-shadow: 0 0 3px #007a00;
+  -webkit-transition: color 1s;
   transition: color 1s;
 }
 
@@ -45,7 +61,8 @@ body {
   display: none;
   position: absolute;
   background-color: #d5d7bb;
-  box-shadow: 0 0 4px 1px #838574;
+  -webkit-box-shadow: 0 0 4px 1px #838574;
+          box-shadow: 0 0 4px 1px #838574;
 }
 
 .close {
@@ -72,10 +89,19 @@ body {
 
 .game .cover {
   margin-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .game .message {
@@ -107,8 +133,12 @@ body {
 
 @media (max-width: 759px) {
   .tiles {
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .game-container {
     width: 90%;
@@ -167,17 +197,26 @@ body {
 
 .top {
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .bottom {
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 [class*="-top"] {
-  flex: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
 }
 
 .a-top {
@@ -197,7 +236,10 @@ body {
 }
 
 [class*="-bottom"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border: 1px solid #8b4516;
 }
@@ -209,7 +251,8 @@ body {
 }
 
 .replay:hover {
-  box-shadow: 0 0 0 1px #e5e7c9;
+  -webkit-box-shadow: 0 0 0 1px #e5e7c9;
+          box-shadow: 0 0 0 1px #e5e7c9;
 }
 
 .replay::before, .replay::after {
@@ -251,7 +294,8 @@ body {
     border-color: #e5e7c9;
     border-width: 6px 9px 6px 0;
     border-right-color: #989a86;
-    box-shadow: -6px 6px #e5e7c9;
+    -webkit-box-shadow: -6px 6px #e5e7c9;
+            box-shadow: -6px 6px #e5e7c9;
   }
 }
 
@@ -288,6 +332,7 @@ body {
     border-color: #e5e7c9;
     border-width: 8px 14px 8px 2px;
     border-right-color: #989a86;
-    box-shadow: -7px 8px #e5e7c9;
+    -webkit-box-shadow: -7px 8px #e5e7c9;
+            box-shadow: -7px 8px #e5e7c9;
   }
 }
